@@ -16,7 +16,7 @@ CREATE TABLE posts (
     community_name VARCHAR(100) NOT NULL,
     vote INTEGER DEFAULT 0,
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    content_type VARCHAR(100),
+    content_type VARCHAR(100) DEFAULT 'text',
     post_date TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
