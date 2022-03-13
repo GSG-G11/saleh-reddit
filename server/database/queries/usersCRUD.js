@@ -8,4 +8,9 @@ const insertUser = (data) =>{
     });
 } 
 
-module.exports = { insertUser };
+const getUserByEmail = (email) => connection.query({
+    text: 'SELECT * FROM users WHERE email=$1',
+    values:[email]
+})
+
+module.exports = { insertUser, getUserByEmail };
