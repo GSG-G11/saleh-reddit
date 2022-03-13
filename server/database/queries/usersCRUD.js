@@ -8,4 +8,4 @@ const insertUser = (data) =>{
     });
 } 
 
-module.exports = insertUser;
+module.exports = { insertUser };
