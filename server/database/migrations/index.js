@@ -1,4 +1,3 @@
-const createUsersTable = require("./createUsersTable");
+const createTables = require('./createUsersTable');
 
-
-createUsersTable();
+createTables();
