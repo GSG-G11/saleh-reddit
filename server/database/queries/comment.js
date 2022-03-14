@@ -11,7 +11,7 @@ const insertComment = (data) => {
 
 // take post id
 const getPostComments = (id) => connection.query({
-  text: 'SELECT users.username, comments.id, comments.content, comments.date,comments.vote FROM users JOIN comments ON comments.user_id =user.id JOIN posts ON comments.post_id = post.id WHERE posts.id=$1 ORDER BY comments.date DESC;',
+  text: 'SELECT users.username, comments.id, comments.content, comments.date,comments.vote FROM users JOIN comments ON comments.user_id =users.id JOIN posts ON comments.post_id = posts.id WHERE posts.id=$1 ORDER BY comments.date DESC;',
   values: [id],
 });
 
