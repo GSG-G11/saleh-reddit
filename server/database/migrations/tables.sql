@@ -29,3 +29,4 @@ CREATE TABLE comments (
     date TIMESTAMP NOT NULL DEFAULT NOW()
 );
 COMMIT;
+
