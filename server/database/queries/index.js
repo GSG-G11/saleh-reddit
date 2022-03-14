@@ -8,6 +8,15 @@ const {
   deletePost,
 } = require('./post');
 
+const {
+  insertComment,
+  getPostComments,
+  getUserComments,
+  increaseVoteComment,
+  decreaseVoteComment,
+  deleteComment,
+} = require('./comment');
+
 module.exports = {
   insertPost,
   getUserPosts,
@@ -16,4 +25,10 @@ module.exports = {
   increaseVote,
   decreaseVote,
   deletePost,
+  insertComment,
+  getPostComments,
+  getUserComments,
+  increaseVoteComment,
+  decreaseVoteComment,
+  deleteComment,
 };
