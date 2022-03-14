@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users, posts CASCADE;
+DROP TABLE IF EXISTS users, posts, comments CASCADE;
 
 CREATE TABLE users (
     id serial primary key,
@@ -20,4 +20,12 @@ CREATE TABLE posts (
     post_date TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
+CREATE TABLE comments (
+    id SERIAL PRIMARY KEY,
+    content TEXT NOT NULL,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    post_id INTEGER REFERENCES posts(id) ON DELETE CASCADE,
+    vote INTEGER DEFAULT 0,
+    date TIMESTAMP NOT NULL DEFAULT NOW()
+);
 COMMIT;
