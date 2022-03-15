@@ -17,7 +17,11 @@ const renderCard = (container, data) => {
   const down = '<span class="iconify" data-icon="bx:downvote"></span>';
   button1.innerHTML = up;
   button2.innerHTML = down;
+  button1.id = data.id;
+  button2.id = data.id;
   button3.textContent = 'comments';
+  button1.classList.add('up');
+  button2.classList.add('down');
   vote.appendChild(button1);
   vote.innerHTML += data.vote;
   vote.appendChild(button2);
