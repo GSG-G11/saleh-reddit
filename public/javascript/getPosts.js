@@ -9,3 +9,26 @@ axios.get('/top-posts')
   .catch((error) => {
     console.log(error.response.data.msg);
   });
+
+document.addEventListener('click', (e) => {
+  console.log(e.target.parentElement);
+
+  if (e.target.parentElement.matches('.up')) {
+    axios.post('/vote-up', { id: e.target.parentElement.id })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  } else if (e.target.parentElement.matches('.down')) {
+    console.log(e.target.parentElement);
+    axios.post('/vote-down', { id: e.target.parentElement.id })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+});
