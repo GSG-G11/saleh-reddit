@@ -38,15 +38,7 @@ const signUp = (req, res, next) => {
       res.status(201).json({ msg: 'user created successfuly', status: 201 });
     })
     .catch((error) => {
-      if (error.status) {
-        res
-          .status(error.status)
-          .json({ msg: error.message, status: error.status });
-      } else if (error.name === 'ValidationError') {
-        res.status(400).json({ msg: error.message, status: 400 });
-      } else {
-        next();
-      }
+      next(error);
     });
 };
 
