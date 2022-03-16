@@ -11,7 +11,7 @@ loginForm.onsubmit = (e) => {
   };
   axios.post('/login', data)
     .then((response) => {
-      location.href = '/';
+      location.href = '/html/home.html';
     })
     .catch((error) => {
         loginErrorText.textContent = error.response.data.msg;
