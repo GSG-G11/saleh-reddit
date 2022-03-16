@@ -434,3 +434,12 @@ nav {
   font-weight: bold;
   color:rgb(214, 214, 214);
 }
+.allActions a { 
+  text-decoration: none;
+  color: white;
+  font-size: 36px;
+  margin-right: 20px;
+}
+.free{
+  color: rgb(235, 152, 28) !important;
+}

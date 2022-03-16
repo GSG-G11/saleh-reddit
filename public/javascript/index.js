@@ -5,6 +5,7 @@ const sign = document.getElementById('sign');
 const span1 = document.getElementById('close1');
 const span2 = document.getElementById('close2');
 const log3 = document.getElementById('go2log');
+const allActions = document.getElementById('allActions');
 
 log.onclick = () => {
   loginModal.style.display = 'block';
@@ -29,3 +30,26 @@ span2.onclick = () => {
   signModal.style.display = 'none';
 };
 
+if (token) {
+  allActions.innerHTML = ``;
+  const plus = document.createElement('a');
+  const fa = document.createElement('i');
+  const free = document.createElement('a');
+  const logout = document.createElement('a');
+  const username = document.createElement('a');
+  plus.setAttribute('class', 'plus');
+  fa.setAttribute('class', 'fa fa-plus');
+  username.id= 'homeUser';
+  allActions.appendChild(plus);
+  allActions.appendChild(free);
+  plus.appendChild(fa);
+  allActions.appendChild(logout);
+  free.textContent = 'free';
+  logout.textContent = 'logout';
+  username.textContent = loggedUser;
+  username.href = '/html/home.html';
+  allActions.appendChild(username);
+  plus.href = './addPost.html';
+  free.href = './addPost.html';
+  logout.href = '/logout';
+}

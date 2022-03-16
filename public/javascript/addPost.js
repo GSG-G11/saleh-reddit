@@ -3,6 +3,8 @@ const title = document.getElementById('title');
 const communityName = document.getElementById('community_name');
 const contentType = document.getElementById('content_type');
 const content = document.getElementById('content');
+const logged = document.getElementById('logged');
+logged.textContent = loggedUser;
 
 addPostForm.onsubmit = (e) => {
   e.preventDefault();
@@ -11,7 +13,7 @@ addPostForm.onsubmit = (e) => {
     community_name: communityName.value,
     content_type: contentType.value,
     content: content.value,
-    user_id: 1,
+    user_id: id,
   };
   axios.post('/post', data)
     .then((response) => {

@@ -22,6 +22,7 @@
     <header>
       <nav>
         <div class="logo">
+          <a href="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
@@ -62,20 +63,25 @@
               ></path>
             </g>
           </svg>
+          </a>
         </div>
         <div class="search">
           <input type="text" class="search-input" placeholder="search reddit" />
           <i class="fa fa-search" id="search-icon"></i>
         </div>
         <div class="allActions">
-            <div class="addNewPost">
-                <a href="./addPost.html"><i class='fa fa-plus'></i></a>
-                <a href="./addPost.html"><i class='fa fa-plus'></i></a>
-                <a href="./addPost.html"><i class='fa fa-plus'></i></a>
-                <a href="./addPost.html"><i class='fa fa-plus'></i></a>
-                <a href="./addPost.html"><i class='fa fa-plus'></i></a>
-                <a href="./addPost.html"><i class='fa fa-plus'></i></a>
-            </div>
+          <div class="addPost">
+            <a class="plus" href="./addPost.html"><i class='fa fa-plus'></i></a>
+        </div>
+        <div class="free">
+            <a class="free" href="./addPost.html">free</a>
+        </div>
+        <div class="logout">
+            <a href="./addPost.html">logout</i></a>
+        </div>
+        <div class="user">
+            <a id="logged" href="./home.html">username</a>
+        </div>
         </div>
       </nav>
     </header>
@@ -101,6 +107,7 @@
     </main>
     <footer></footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/javascript/dom.js"></script>
     <script src="/javascript/addPost.js"></script>
   </body>
 </html>

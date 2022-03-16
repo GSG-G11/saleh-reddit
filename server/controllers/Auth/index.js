@@ -81,4 +81,10 @@ const login = (req, res, next) => {
     });
 };
 
-module.exports = { signUp, login };
+const logout = (req, res, next) => {
+  res.clearCookie('id');
+  res.clearCookie('name');
+  res.status(200).clearCookie('token').redirect('/');
+};
+
+module.exports = { signUp, login, logout };
