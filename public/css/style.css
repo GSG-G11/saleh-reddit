@@ -368,3 +368,69 @@ nav {
 .iconify{
   color:white; font-size: 36px;
 }
+.addPost{
+  background-color: #232324;
+  width: 100%;
+}
+.formHeder{
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  border-bottom: #838683 solid 2px;
+  padding-bottom: 5px;
+  margin-bottom: 16px;
+}
+.formHeder .post-input{
+  margin: 5px;
+  height: 50px;
+  background-color: #232324;
+  border: #838683 solid 1px;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.formBody{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: #838683 solid 2px;
+  padding-bottom: 5px;
+  margin-bottom: 16px;
+}
+.formBody .post-input{
+  width: 98%;
+  margin: 5px;
+  height: 50px;
+  background-color: #232324;
+  border: #838683 solid 1px;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.text{
+  height: 180px !important;
+  width: 98% !important;
+}
+.formActions{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 60px;
+}
+.addPostBtn{
+  background-color: white;
+  color: rgb(51, 51, 51);
+  padding: 5px 40px;
+  border: rgb(32, 32, 32) solid 1px;
+  border-radius: 25px;
+  margin-right: 22px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.addPostHeader{
+  font-size: 1.8rem;
+  font-weight: bold;
+  color:rgb(214, 214, 214);
+}
