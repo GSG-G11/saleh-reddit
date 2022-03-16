@@ -6,8 +6,9 @@ const routProtector = (req, res, next) => {
     if (err) {
       throw myError({ msg: 'not reauthorized users', status: 401 });
     } else {
+      req.token = decoded;
       next();
     }
-  }).catch((err) => res.status(err.status).json(err));
+  })
 };
-module.exports = routProtector;
+module.exports = { routProtector };

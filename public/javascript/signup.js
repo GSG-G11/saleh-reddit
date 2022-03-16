@@ -13,9 +13,9 @@ signUpForm.onsubmit = (e) => {
   };
   axios.post('/signup', data)
     .then((response) => {
-      location.href = '/';
+      location.href = '/html/home.html';
     })
     .catch((error) => {
-        errorText.textContent = error.response.data.msg
+      errorText.textContent = error.response.data.msg;
     });
 };

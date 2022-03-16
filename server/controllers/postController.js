@@ -31,6 +31,14 @@ const userPosts = (req, res, next) => {
     .catch(() => next());
 };
 
+const userProfile = (req, res, next) => {
+  const { id } = req.params;
+  getUserPosts(id)
+    .then((result) => result.rows)
+    .then((data) => res.status(200).json({ msg: 'all user\'s posts', data, status: 200 }))
+    .catch(() => next());
+};
+
 const topVotePosts = (req, res, next) => {
   getPosts()
     .then((result) => result.rows)
@@ -70,5 +78,5 @@ const postDelete = (req, res, next) => {
 
 
 module.exports = {
-  storePost, userPosts, topVotePosts, recentPosts, voteUp, voteDown, postDelete
+  storePost, userPosts, topVotePosts, recentPosts, voteUp, voteDown, postDelete,userProfile
 };
