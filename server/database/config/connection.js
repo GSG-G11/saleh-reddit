@@ -6,10 +6,10 @@ const {
 } = process.env;
 
 let dbUrl = '';
-let sslValue = false
+let sslValue = false;
 if (NODE_ENV === 'production') {
   dbUrl = DATABASE_URL;
-  sslValue =  { rejectUnauthorized: false }
+  sslValue = { rejectUnauthorized: false };
 } else if (NODE_ENV === 'development') {
   dbUrl = DEV_DB_URL;
 } else if (NODE_ENV === 'test') {
