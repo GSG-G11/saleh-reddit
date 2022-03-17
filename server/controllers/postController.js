@@ -68,6 +68,7 @@ const voteDown = (req, res, next) => {
     .then((data) => res.status(200).json({ msg: ' vote down - 1 ', data, status: 200 }))
     .catch(() => next());
 };
+
 const postDelete = (req, res, next) => {
   const { id } = req.body;
   deletePost(id)
@@ -76,7 +77,13 @@ const postDelete = (req, res, next) => {
     .catch(() => next());
 };
 
-
 module.exports = {
-  storePost, userPosts, topVotePosts, recentPosts, voteUp, voteDown, postDelete,userProfile
+  storePost,
+  userPosts,
+  topVotePosts,
+  recentPosts,
+  voteUp,
+  voteDown,
+  postDelete,
+  userProfile,
 };
