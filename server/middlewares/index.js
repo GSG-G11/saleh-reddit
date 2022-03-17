@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { myError } = require('../controllers/erroes');
+const { myError } = require('../controllers/errors');
 
 const routProtector = (req, res, next) => {
   jwt.verify(req.cookies.token, process.env.SECRET_KEY, (err, decoded) => {
