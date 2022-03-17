@@ -10,7 +10,7 @@ const {
   signUpValidation,
   loginValidation,
 } = require('../../attachments/validations');
-const { myError } = require('../erroes');
+const { myError } = require('../errors');
 
 const signUp = (req, res, next) => {
   const { username, email, password } = req.body;

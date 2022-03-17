@@ -7,12 +7,13 @@ const {
   voteDown,
   deleteCommentC,
 } = require('../controllers/commentController');
+const { routProtector } = require('../middlewares');
 
-commentsRouter.post('/create', store);
+commentsRouter.post('/create',routProtector, store);
 commentsRouter.post('/post', postComments);
-commentsRouter.post('/user', userComments);
-commentsRouter.post('/up', voteUp);
-commentsRouter.post('/down', voteDown);
-commentsRouter.post('/delete', deleteCommentC);
+commentsRouter.post('/user', routProtector, userComments);
+commentsRouter.post('/up', routProtector, voteUp);
+commentsRouter.post('/down', routProtector, voteDown);
+commentsRouter.post('/delete', routProtector, deleteCommentC);
 
 module.exports = { commentsRouter };
