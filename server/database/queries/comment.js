@@ -11,13 +11,13 @@ const insertComment = (data) => {
 
 // take post id
 const getPostComments = (id) => connection.query({
-  text: 'SELECT users.username, comments.id, comments.content, comments.date,comments.vote FROM users JOIN comments ON comments.user_id =users.id JOIN posts ON comments.post_id = posts.id WHERE posts.id=$1 ORDER BY comments.date DESC;',
+  text: 'SELECT users.id as user_id, users.username, comments.id, comments.content, comments.date,comments.vote FROM users JOIN comments ON comments.user_id =users.id JOIN posts ON comments.post_id = posts.id WHERE posts.id=$1 ORDER BY comments.date DESC;',
   values: [id],
 });
 
 // take user id
 const getUserComments = (id) => connection.query({
-  text: 'SELECT users.username, comments.id, comments.content,comments.date,comments.vote FROM users JOIN comments ON comments.user_id =users.id WHERE comments.user_id=$1;',
+  text: 'SELECT users.id as user_id, users.username, comments.id, comments.content,comments.date,comments.vote FROM users JOIN comments ON comments.user_id =users.id WHERE comments.user_id=$1;',
   values: [id],
 });
 
