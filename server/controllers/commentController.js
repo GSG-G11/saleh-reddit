@@ -9,7 +9,6 @@ const {
 } = require('../database/queries');
 
 const store = (req, res, next) => {
-    console.log(req.body);
   commentValidation
     .validateAsync(req.body)
     .then((values) => insertComment(values))
@@ -17,15 +16,14 @@ const store = (req, res, next) => {
     .then((comment) => res.status(201).json({ msg: 'comment created', data: comment, status: 201 }))
     .catch(() => next());
 };
-const postComents = (req, res, next) => {
+const postComments = (req, res, next) => {
   const { id } = req.body;
-  console.log(id);
   getPostComments(id)
     .then((result) => result.rows)
     .then((comments) => res.status(200).json({ msg: 'all post comments', data: comments, status: 200 }))
     .catch(() => next());
 };
-const userComents = (req, res, next) => {
+const userComments = (req, res, next) => {
   const { id } = req.body;
   getUserComments(id)
     .then((result) => result.rows)
@@ -46,7 +44,7 @@ const voteDown = (req, res, next) => {
     .then((data) => res.status(200).json({ msg: ' vote down - 1 ', data, status: 200 }))
     .catch(() => next());
 };
-const deleteComent = (req, res, next) => {
+const deleteCommentC = (req, res, next) => {
   const { id } = req.body;
   deleteComment(id)
     .then((result) => result.rows)
@@ -56,9 +54,9 @@ const deleteComent = (req, res, next) => {
 
 module.exports = {
   store,
-  postComents,
-  userComents,
+  postComments,
+  userComments,
   voteUp,
   voteDown,
-  deleteComent,
+  deleteCommentC,
 };

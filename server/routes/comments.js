@@ -1,18 +1,18 @@
 const commentsRouter = require('express').Router();
 const {
   store,
-  postComents,
-  userComents,
+  postComments,
+  userComments,
   voteUp,
   voteDown,
-  deleteComent,
+  deleteCommentC,
 } = require('../controllers/commentController');
 
 commentsRouter.post('/create', store);
-commentsRouter.post('/post', postComents);
-commentsRouter.post('/user', userComents);
+commentsRouter.post('/post', postComments);
+commentsRouter.post('/user', userComments);
 commentsRouter.post('/up', voteUp);
 commentsRouter.post('/down', voteDown);
-commentsRouter.post('/delete', deleteComent);
+commentsRouter.post('/delete', deleteCommentC);
 
 module.exports = { commentsRouter };
