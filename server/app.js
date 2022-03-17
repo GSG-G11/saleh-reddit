@@ -1,6 +1,6 @@
 const cookieParser = require('cookie-parser');
 const express = require('express');
-const morgan = require('morgan');
+require('env2')('.env');
 
 const app = express();
 
