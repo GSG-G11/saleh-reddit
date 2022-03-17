@@ -1,6 +1,7 @@
 const cookieParser = require('cookie-parser');
 const express = require('express');
 const morgan = require('morgan');
+require('env2')('.env');
 
 const app = express();
 
@@ -9,7 +10,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('public'));
 app.use(morgan('tiny'));
-app.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT);
 
 app.get('hello', (req, res) => {
   res.send('hello world');
