@@ -443,3 +443,7 @@ nav {
 .free{
   color: rgb(235, 152, 28) !important;
 }
+#addPostError{
+  color: red;
+  font-size: 1.1rem;
+}

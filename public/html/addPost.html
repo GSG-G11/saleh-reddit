@@ -91,13 +91,14 @@
             <h3 class="addPostHeader">Create Post</h3>
             <form id="addPost" class="addPost">
                 <div class="formHeder">
-                    <input class="post-input" type="text" name="content_type" id="content_type"  >
-                    <input class="post-input" type="text" name="community_name" id="community_name"  >
+                    <input class="post-input" type="text" name="content_type" id="content_type"  placeholder="image os text">
+                    <input class="post-input" type="text" name="community_name" id="community_name" placeholder="community_name" >
                 </div>
                 <div class="formBody">
-                    <input class="post-input" type="text" name="title" id="title">
-                    <textarea class="text post-input" name="content" id="content" rows="30"></textarea>
+                    <input class="post-input" type="text" name="title" id="title" placeholder="title">
+                    <textarea class="text post-input" name="content" id="content" placeholder="post" rows="30"></textarea>
                 </div>
+                <p id="addPostError"></p>
                 <div class="formActions">
                     <button class="addPostBtn" type="submit">add post</button>
                 </div>

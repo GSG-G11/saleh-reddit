@@ -1,9 +1,3 @@
-const addPostForm = document.getElementById('addPost');
-const title = document.getElementById('title');
-const communityName = document.getElementById('community_name');
-const contentType = document.getElementById('content_type');
-const content = document.getElementById('content');
-const logged = document.getElementById('logged');
 logged.textContent = loggedUser;
 
 addPostForm.onsubmit = (e) => {
@@ -20,6 +14,6 @@ addPostForm.onsubmit = (e) => {
       location.href = '/html/home.html';
     })
     .catch((error) => {
-        console.log(error.response.data.msg);
+      addPostError.textContent = error.response.data.msg;
     });
 };

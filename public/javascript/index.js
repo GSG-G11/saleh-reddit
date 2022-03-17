@@ -49,7 +49,7 @@ if (token) {
   username.textContent = loggedUser;
   username.href = '/html/home.html';
   allActions.appendChild(username);
-  plus.href = './addPost.html';
-  free.href = './addPost.html';
+  plus.href = 'html/addPost.html';
+  free.href = 'html/addPost.html';
   logout.href = '/logout';
 }
