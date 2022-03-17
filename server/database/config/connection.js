@@ -20,7 +20,7 @@ if (NODE_ENV === 'production') {
 
 const options = {
   connectionString: dbUrl,
-  ssl: sslValue,
+  ssl: { rejectUnauthorized: false }
 };
 
 const connection = new Pool(options);
