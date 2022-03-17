@@ -20,7 +20,7 @@ const signUp = (req, res, next) => {
     .then((values) => getUserByEmail(values.email))
     .then((user) => {
       if (user.rowCount) {
-        throw myError({ msg: 'emaile alredy exiests', status: 400 });
+        throw myError({ msg: 'email already exists', status: 400 });
       } else {
         return bcrypt.hash(password, 10);
       }
@@ -31,11 +31,11 @@ const signUp = (req, res, next) => {
       password: hashedPW,
     }))
     .then((data2insert) => insertUser(data2insert))
-    .then((userdata) => {
+    .then((userData) => {
       res.cookie('token', token);
-      res.cookie('id', userdata.rows[0].id);
-      res.cookie('name', userdata.rows[0].username);
-      res.status(201).json({ msg: 'user created successfuly', status: 201 });
+      res.cookie('id', userData.rows[0].id);
+      res.cookie('name', userData.rows[0].username);
+      res.status(201).json({ msg: 'user created successfully', status: 201 });
     })
     .catch((error) => {
       next(error);
@@ -46,7 +46,7 @@ const login = (req, res, next) => {
   const { password } = req.body;
   loginValidation
     .validateAsync(req.body)
-    .then((valuse) => getUserByEmail(valuse.email))
+    .then((values) => getUserByEmail(values.email))
     .then((user) => {
       if (user.rowCount) {
         const { rows } = user;
@@ -56,10 +56,10 @@ const login = (req, res, next) => {
       }
       throw myError({ msg: 'Email not found', status: 400 });
     })
-    .then((isMathe) => {
+    .then((isMatch) => {
       const { id, name } = req;
       const token = jwt.sign(name, process.env.SECRET_KEY);
-      if (!isMathe) {
+      if (!isMatch) {
         throw myError({ msg: 'incorrect password', status: 400 });
       } else {
         res.cookie('token', token);
@@ -69,15 +69,7 @@ const login = (req, res, next) => {
       }
     })
     .catch((error) => {
-      if (error.status) {
-        res
-          .status(error.status)
-          .json({ msg: error.message, status: error.status });
-      } else if (error.name === 'ValidationError') {
-        res.status(400).json({ msg: error.message, status: 400 });
-      } else {
-        next();
-      }
+      next(error);
     });
 };
 
