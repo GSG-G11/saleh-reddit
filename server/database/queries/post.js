@@ -12,7 +12,7 @@ const insertPost = (data) => {
 };
 
 const getUserPosts = (id) => connection.query({
-  text: 'SELECT users.username, users.id as user_id, posts.id, posts.title,posts.vote, posts.content,posts.community_name,posts.content_type FROM users JOIN posts ON posts.user_id =users.id WHERE posts.user_id=$1;',
+  text: 'SELECT users.username, users.id as user_id, posts.id, posts.title,posts.vote, posts.content,posts.community_name,posts.content_type, posts.post_date FROM users JOIN posts ON posts.user_id =users.id WHERE posts.user_id=$1;',
   values: [id],
 });
 
@@ -21,7 +21,7 @@ const getPosts = () => connection.query({
 });
 
 const getRecentPosts = () => connection.query({
-  text: 'SELECT users.username,users.id as user_id, posts.id, posts.title, posts.content,posts.community_name,posts.content_type FROM users JOIN posts ON posts.user_id =users.id ORDER BY posts.post_date DESC;',
+  text: 'SELECT users.username,users.id as user_id, posts.id, posts.title, posts.content,posts.community_name,posts.content_type, posts.post_date FROM users JOIN posts ON posts.user_id =users.id ORDER BY posts.post_date DESC;',
 });
 
 const increaseVote = (id) => connection.query({
@@ -34,9 +34,9 @@ const decreaseVote = (id) => connection.query({
   values: [id],
 });
 
-const deletePost = (id) => connection.query({
-  text: 'DELETE FROM posts WHERE id=$1;',
-  values: [id],
+const deletePost = (id, uId) => connection.query({
+  text: 'DELETE FROM posts WHERE id=$1 AND user_id=$2;',
+  values: [id, uId],
 });
 
 module.exports = {
