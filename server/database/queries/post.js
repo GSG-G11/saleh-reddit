@@ -25,12 +25,12 @@ const getRecentPosts = () => connection.query({
 });
 
 const increaseVote = (id) => connection.query({
-  text: 'UPDATE posts SET vote = vote + 1 WHERE id = $1;',
+  text: 'UPDATE posts SET vote = vote + 1 WHERE id = $1 RETURNING *;',
   values: [id],
 });
 
 const decreaseVote = (id) => connection.query({
-  text: 'UPDATE posts SET vote = vote - 1 WHERE id = $1;',
+  text: 'UPDATE posts SET vote = vote - 1 WHERE id = $1 RETURNING *;',
   values: [id],
 });
 
