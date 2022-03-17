@@ -1,16 +1,14 @@
 const container_all = document.getElementById('container');
 const homeUser = document.getElementById('homeUser');
 homeUser.textContent = loggedUser;
-console.log(id);
 axios.post('/my-posts',{id})
   .then((response) => {
     response.data.data.forEach((element) => {
       renderCard(container_all, element, true);
     });
-    console.log(response.data.data);
   })
   .catch((error) => {
-    console.log(error.response.data.msg);
+    container_all.textContent = error.response.data.msg
   });
 
 document.addEventListener('click', (e) => {
@@ -19,19 +17,19 @@ document.addEventListener('click', (e) => {
   if (e.target.parentElement.matches('.up')) {
     axios.post('/vote-up', { id: e.target.parentElement.id })
       .then((response) => {
-        console.log(response.data);
+        location.reload();
       })
       .catch((error) => {
-        console.log(error);
+        container_all.textContent = error.response.data.msg
       });
   } else if (e.target.parentElement.matches('.down')) {
     console.log(e.target.parentElement);
     axios.post('/vote-down', { id: e.target.parentElement.id })
       .then((response) => {
-        console.log(response.data);
+        location.reload();
       })
       .catch((error) => {
-        console.log(error);
+        container_all.textContent = error.response.data.msg
       });
   }
 });
@@ -42,10 +40,10 @@ document.addEventListener('click', (e) => {
     console.log('dfjghslkd deena ');
     axios.post('/delete-post', { id: e.target.id })
       .then((response) => {
-        console.log(response);
+        location.reload();
       })
       .catch((error) => {
-        console.log(error);
+        container_all.textContent = error.response.data.msg
       });
   }
 });

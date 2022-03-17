@@ -6,8 +6,7 @@ axios.get(`/user-posts/${userIDFromLocation}`)
     response.data.data.forEach((element) => {
       renderCard(container_all, element);
     });
-    console.log(response.data.data);
   })
   .catch((error) => {
-    console.log(error.response.data.msg);
+    container_all.textContent = error.response.data.msg
   });
