@@ -1,5 +1,8 @@
+const path = require('path');
+
 const notFoundError = (req, res, next) => {
-  res.status(404).json({ msg: 'Page Not Found', status: 404 });
+  const file = path.join(__dirname, '..', '..', '..', 'public/html/404.html');
+  res.status(404).sendFile(file);
 };
 
 module.exports = notFoundError;
